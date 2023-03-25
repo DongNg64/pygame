@@ -11,6 +11,8 @@ class RedHood(pygame.sprite.Sprite):
         self.jumping = False
         self.attacking = False
         self.click = 0
+        self.x = dx
+        self.y = dy
         # action: 0 = idle, action: 1 = move
         self.action = 'idle'
         # self.scale = scale
@@ -27,7 +29,7 @@ class RedHood(pygame.sprite.Sprite):
 
         self.image = self.image_sprite[self.action][self.frame_index]
         self.rect = self.image.get_rect()
-        self.rect.center = (dx, dy)
+        self.rect.center = (self.x, self.y)
 
     # def check_out_of_move(self, frame_index):
         
@@ -48,9 +50,11 @@ class RedHood(pygame.sprite.Sprite):
                 self.frame_index += 1
                 self.jumping = True
                 self.attacking = True
+                self.rect.center = (self.x, self.y - 50)
             if self.frame_index >= len(self.image_sprite[self.action]):
                 self.jumping = False
                 self.attacking = True
+                self.rect.center = (self.x, self.y + 50)
                 self.update_action(action='idle')
         elif self.action == 'attack':
             if pygame.time.get_ticks() - self.time > 20:

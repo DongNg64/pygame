@@ -20,17 +20,7 @@ cooldown_attack = 500
 # redhood_move_frames = len([name for name in os.listdir('./character/redhood/move') if os.path.isfile(name)])
 
 image_sprite = list()
-# redhood move 
-# for i in range(0, 25):
-    # redhood_image = pygame.image.load("./character/redhood/move/redhood_{}.png".format(i))
-    # redhood_image_turn_arround = pygame.image.load("./character/redhood/move/run_turn_arround_{}.png".format(i))
-    # redhood_image_flip = pygame.transform.flip(redhood_image, True, False)
-    # redhood_image_scale = pygame.transform.scale(redhood_image, redhood_size)
-    # image_sprite.append(redhood_image_scale)
 
-# redhood turn arround
-# for i in range(0, 5):
-    # redhood_image_turn_arround = pygame.image.load("./character/redhood/turn_arround/run_turn_arround_{}.png".format(i))
 redhood = RedHood(dx=200, dy=200, scale=redhood_size)
 clock = pygame.time.Clock()
 run = True
